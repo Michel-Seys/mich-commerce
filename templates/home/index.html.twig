@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HomePage!{% endblock %}
+
+{% block body %}
+
+    <p class="h1"> Nos produits phares</p>
+    <div class="row">
+        {% for i in 1..3 %}
+        <div class="col">
+            <div class="card">
+                <img src="https://picsum.photos/200/200" alt="" class="img-fluid">
+                <div class="card-body">
+                    <h4 class="card-title">Un super produit</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid amet architecto asperiores
+                        cupiditate, dicta, distinctio et illum itaque necessitatibus nemo nulla odio perspiciatis
+                        praesentium reiciendis, repudiandae tempora ullam unde.</p>
+                    <a href="#" class="btn btn-primary btn-sm" >Voir plus</a>
+                    <a href="#" class="btn btn-success btn-sm" >Ajouter </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <p class="h2">Un super service</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores blanditiis ea itaque nisi porro temporibus
+        voluptate. Ab dolore est id illo iure laboriosam neque nobis quidem sequi, suscipit. Rem, rerum!</p>
+    <div class="row">
+        {% include "shared/_assurance.html.twig" with {
+            'color': 'primary',
+            'icon': 'fas fa-truck',
+            'text': "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores blanditiis ea itaque nisi porro temporibus
+        voluptate. Ab dolore est id illo iure laboriosam neque nobis quidem sequi, suscipit. Rem, rerum"
+        } %}
+        {% include "shared/_assurance.html.twig" with {
+            'color': 'success',
+            'icon': 'fas fa-check',
+            'text': "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores blanditiis ea itaque nisi porro temporibus
+        voluptate. Ab dolore est id illo iure laboriosam neque nobis quidem sequi, suscipit. Rem, rerum"
+        } %}
+        {% include "shared/_assurance.html.twig" with {
+            'color': 'info',
+            'icon': 'fas fa-lock',
+            'text': "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores blanditiis ea itaque nisi porro temporibus
+        voluptate. Ab dolore est id illo iure laboriosam neque nobis quidem sequi, suscipit. Rem, rerum"
+        } %}
+    </div>
+
+{% endblock %}
