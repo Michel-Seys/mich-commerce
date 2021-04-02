@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\String\Slugger\SluggerInterface;
+
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -46,6 +48,20 @@ class Product
      * @ORM\Column(type="text")
      */
     private $shortDescription;
+
+    /**
+     * Initialise le slug
+     *
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     * @param SluggerInterface $slugger
+     */
+    public function initSlug(SluggerInterface $slugger)
+    {
+        if (empty($this->slug)) {
+            $this->setSlug(strtolower($slugger->slug($this->getName())));
+        }
+    }
 
     public function getId(): ?int
     {
